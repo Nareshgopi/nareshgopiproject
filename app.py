@@ -14,10 +14,10 @@ data = "in software services we are providing software installations like coding
 services = ["software installations","msoffice(excel sheet, power point presentation, documentation)", "web development (front end back end)", "job applications(government it)"]
 ln = "languages"
 defaultlanguage = "english"
-app.route("/")
+@app.route("/")
 def index():
   return render_template("index.html",languages=languages,welcomemessage=welcomemessage,data=data,services=services,name=name,email=email,phonenumber=phonenumber,ln=ln,defaultlanguage=defaultlanguage)
-app.route("/<string:languageselected>")
+@app.route("/<string:languageselected>")
 def languageselected():
   welcomemessage = translator.translate(welcomemessage,src=auto,dest=[languageselected])
   data = translator.translate(data,src=auto,dest=[languageselected])
