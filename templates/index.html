@@ -1,1 +1,22 @@
-
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>software services</title>
+  </head>
+  <body>
+    <label for="languages"></label>
+    <select name="languages" class="languages">
+      {% for language in languages %}
+      <option value="{{language}}" {% if language==language%}selected{% endif %}><a href="/{{ language }}" class="language">{{language}}</a></option>
+      {% endfor %}
+    </select>
+    <p>{{ welcomemessage }}</p>
+    <p>{{ data }}</p>
+    <h1>services</h1>
+    <ul>
+    {% for servicedata in services %}
+      <li>{{ servicedata }}</li>
+    {% endfor %}
+    </ul>
+  </body>
+</html>
