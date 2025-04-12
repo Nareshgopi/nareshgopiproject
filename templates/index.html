@@ -4,10 +4,10 @@
     <title>software services</title>
   </head>
   <body>
-    <label for="languages"></label>
+    <label for="languages">{{ln}}</label>
     <select name="languages" class="languages">
       {% for language in languages %}
-      <option value="{{language}}" {% if language==language%}selected{% endif %}><a href="/{{ language }}" class="language">{{language}}</a></option>
+      <option value="{{language}}" {% if language==defaultlanguage %}selected{% endif %}><a href="/{{ language }}" class="language">{{language}}</a></option>
       {% endfor %}
     </select>
     <p>{{ welcomemessage }}</p>
@@ -18,5 +18,9 @@
       <li>{{ servicedata }}</li>
     {% endfor %}
     </ul>
+    info
+    {{ name }}
+    email: {{ email }}
+    phonenumber: {{ phonenumber }}
   </body>
 </html>
