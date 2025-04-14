@@ -6,8 +6,8 @@
   <body>
     <label for="languages">{{ln}}</label>
     <select name="languages" class="languages">
-      {% for language in languages %}
-      <option value="{{language}}" {% if language==defaultlanguage %}selected{% endif %}><a href="/{{ language }}" class="language">{{language}}</a></option>
+      {% for language1,language2 in languages %}
+      <option value="{{language2}}" {% if language2==defaultlanguage %}selected{% endif %}><a href="/{{ language2 }}" class="language">{{language1}}</a></option>
       {% endfor %}
     </select>
     <p>{{ welcomemessage }}</p>
