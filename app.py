@@ -8,7 +8,7 @@ name = "kurra naresh gopi"
 email = "nareshgopiyadavkurra@gmail.com"
 phonenumber = "9390186116"
 translator = Translator()
-languages = [translator.translate("telugu",src="auto",dest=["telugu"]),translator.translate("hindi",src="auto",dest=["hindi"]),translator.translate("english",src="auto",dest=["english"])]
+languages = [str(translator.translate("telugu",src="auto",dest=["telugu"])),str(translator.translate("hindi",src="auto",dest=["hindi"])),str(translator.translate("english",src="auto",dest=["english"]))]
 welcomemessage = "hi welcome to software services"
 data = "in software services we are providing software installations like coding software or normal software, we can do it in offline or remote, web development front end and back end, this is about software services"
 services = ["software installations", "web development (front end back end)"]
