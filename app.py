@@ -8,7 +8,11 @@ name = "kurra naresh gopi"
 email = "nareshgopiyadavkurra@gmail.com"
 phonenumber = "9390186116"
 translator = Translator()
-languages = [str(translator.translate("telugu",src="auto",dest=["telugu"])),str(translator.translate("hindi",src="auto",dest=["hindi"])),str(translator.translate("english",src="auto",dest=["english"]))]
+languages = [translator.translate("telugu",dest=["te"]),translator.translate("hindi",dest=["hi"]),translator.translate("english",dest=["en"])]
+languages[0] = list(languages[0],"te")
+languages[1] = list(languages[1],"hi")
+languages[2] = list(languages[2],"en")
+print(languages)
 welcomemessage = "hi welcome to software services"
 data = "in software services we are providing software installations like coding software or normal software, we can do it in offline or remote, web development front end and back end, this is about software services"
 services = ["software installations", "web development (front end back end)"]
@@ -19,9 +23,9 @@ def index():
   return render_template("index.html",languages=languages,welcomemessage=welcomemessage,data=data,services=services,name=name,email=email,phonenumber=phonenumber,ln=ln,defaultlanguage=defaultlanguage)
 @app.route("/<string:languageselected>")
 def languageselected():
-  welcomemessage = str(translator.translate(welcomemessage,src=auto,dest=[languageselected]))
-  data = str(translator.translate(data,src=auto,dest=[languageselected]))
-  ln = str(translator.translate(ln,src=auto,dest=[languageselected]))
+  welcomemessage = translator.translate(welcomemessage,dest=[languageselected])
+  data = translator.translate(data,dest=[languageselected])
+  ln = translator.translate(ln,dest=[languageselected])
   defaultlanguage = languageselected
   return render_template("index.html",languages=languages,welcomemessage=welcomemessage,data=data,services=services,name=name,email=email,phonenumber=phonenumber,ln=ln,defaultlanguage=defaultlanguage)
 if __name__ == "__main__":
