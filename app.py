@@ -19,9 +19,9 @@ def index():
   return render_template("index.html",languages=languages,welcomemessage=welcomemessage,data=data,services=services,name=name,email=email,phonenumber=phonenumber,ln=ln,defaultlanguage=defaultlanguage)
 @app.route("/<string:languageselected>")
 def languageselected():
-  welcomemessage = translator.translate(welcomemessage,src=auto,dest=[languageselected])
-  data = translator.translate(data,src=auto,dest=[languageselected])
-  ln = translator.translate(ln,src=auto,dest=[languageselected])
+  welcomemessage = str(translator.translate(welcomemessage,src=auto,dest=[languageselected]))
+  data = str(translator.translate(data,src=auto,dest=[languageselected]))
+  ln = str(translator.translate(ln,src=auto,dest=[languageselected]))
   defaultlanguage = languageselected
   return render_template("index.html",languages=languages,welcomemessage=welcomemessage,data=data,services=services,name=name,email=email,phonenumber=phonenumber,ln=ln,defaultlanguage=defaultlanguage)
 if __name__ == "__main__":
